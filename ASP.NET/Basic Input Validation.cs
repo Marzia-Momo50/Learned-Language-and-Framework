@@ -114,4 +114,37 @@ public record Category
 
 
 
-//-----------
+//-----API Calling System Using Rest_Client------//
+
+
+
+@App_HostAddress = http://localhost:5065
+
+
+GET http://localhost:5065
+###
+
+GET http://localhost:5065/api/categories
+###
+
+POST http://localhost:5065/api/categories
+Content-Type: application/json
+
+{
+    "name":"programming_language",
+    "description":"including C++,js,c#"
+}
+###
+
+DELETE http://localhost:5065/api/categories/f3211f3d-6be4-4dea-a0cd-76bc670029ae
+###
+
+PUT http://localhost:5065/api/categories/d4bcbc1f-20cf-406f-b525-c7f04181491e
+Content-Type: application/json
+
+ {
+    "name":"",
+    "description":"c,d,e,r"
+ }
+
+
