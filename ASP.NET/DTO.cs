@@ -112,4 +112,143 @@ public class categoryController:ControllerBase
 
 
 
+//-------------------------------CategoryReadDto.cs-----------------------------------//
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace App.Model
+{
+public class CategoryReadDto
+{
+   
+   public Guid CategoryId {get;set;}
+    public string Name {get;set;}
+    public string? Description {get;set;} =string.Empty;
+    public DateTime CreatedAt {get;set;}
+}
+    
+}
+
+//Model works at Database side and DTOS works at client site//
+
+
+//-----------------------CategoryUpdateDto.cs--------------------------------//
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace App.Model
+{
+public class CategoryUpdateDto
+{
+    public string Name {get;set;}
+    public string? Description {get;set;} =string.Empty;
+}
+    
+}
+
+
+
+//---------------------------CategoryCreateDto.cs------------------------------//
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace App.Model
+{
+public class CategoryCreateDto
+{
+   
+    public string Name {get;set;}
+    public string? Description {get;set;} =string.Empty;
+}
+    
+}
+
+//Model works at Database side and DTOS works at client site//
+
+
+
+
+
+
+
+
+//-------------------Progrma.cs------------------//
+
+
+using System.ComponentModel;
+using Microsoft.AspNetCore.Mvc;
+
+var builder = WebApplication.CreateBuilder(args);
+
+//Add service to the controller//
+builder.Services.AddControllers();
+
+
+builder.Services.AddOpenApi();
+// if (app.Environment.IsDevelopment())
+// {
+//     app.UseSwagger();
+//     app.UseSwaggerUI();
+// }
+
+
+var app = builder.Build();
+
+
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+}
+
+app.UseHttpsRedirection();
+
+//Start here//
+app.MapGet("/", () =>
+{
+    return "App is working Well!!";
+});
+
+
+app.MapControllers();
+app.Run();
+
+
+
+//---------------------Category.cs-----------------------//
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace App.Model
+{
+public class Category
+{
+   public Guid CategoryId {get;set;}
+    public string Name {get;set;}
+    public string? Description {get;set;} =string.Empty;
+    public DateTime CreatedAt {get;set;}
+}
+    
+}
+
+
+
+
+
     
